@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login & Signup - Ashvanth Store</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-box {
+    background: white;
+    width: 350px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 5px;
+    color: #2563eb;
+}
+
+p {
+    margin-top: 0;
+    color: #64748b;
+}
+
+.switch-buttons {
+    margin: 20px 0;
+}
+
+.switch-buttons button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 6px;
+    background: #e5e7eb;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.switch-buttons button:hover {
+    background: #2563eb;
+    color: white;
+}
+
+.form-box {
+    margin-top: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #cbd5f5;
+}
+
+.submit-btn {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #1d4ed8;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #64748b;
+}
+</style>
+
+<script>
+function showLogin() {
+    document.getElementById("loginBox").style.display = "block";
+    document.getElementById("signupBox").style.display = "none";
+}
+
+function showSignup() {
+    document.getElementById("signupBox").style.display = "block";
+    document.getElementById("loginBox").style.display = "none";
+}
+
+function loginValidate() {
+    var u = document.getElementById("loginUser").value;
+    var p = document.getElementById("loginPass").value;
+
+    if (u === "" || p.length < 6) {
+        alert("Invalid login details");
+        return false;
+    }
+    alert("Login Successful");
+    window.location.href = "store.html";
+    return false;
+}
+
+function signupValidate() {
+    var n = document.getElementById("name").value;
+    var e = document.getElementById("email").value;
+    var p = document.getElementById("password").value;
+
+    if (n.length < 6 || p.length < 6 || e === "") {
+        alert("Invalid signup details");
+        return false;
+    }
+    alert("Signup Successful");
+    window.location.href = "store.html";
+    return false;
+}
+</script>
+
+</head>
+
+<body onload="showLogin()">
+
+<div class="main-box">
+
+<h1>Ashvanth Store</h1>
+<p>Premium Electronics</p>
+
+<div class="switch-buttons">
+<button onclick="showLogin()">Login</button>
+<button onclick="showSignup()">Signup</button>
+</div>
+
+<!-- LOGIN -->
+<div id="loginBox" class="form-box">
+<form onsubmit="return loginValidate()">
+<input type="text" id="loginUser" placeholder="Username">
+<input type="password" id="loginPass" placeholder="Password">
+<input type="submit" value="Login" class="submit-btn">
+</form>
+</div>
+
+<!-- SIGNUP -->
+<div id="signupBox" class="form-box" style="display:none;">
+<form onsubmit="return signupValidate()">
+<input type="text" id="name" placeholder="Full Name">
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+<input type="submit" value="Signup" class="submit-btn">
+</form>
+</div>
+
+<div class="footer">
+© CopyRighted By Ashvanth M
+</div>
+
+</div>
+
+</body>
+</html>

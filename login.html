@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login & Signup</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #2563eb, #60a5fa);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: #ffffff;
+    width: 400px;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 5px;
+    color: #2563eb;
+}
+
+p {
+    margin-top: 0;
+    color: #64748b;
+}
+
+.switch {
+    margin: 20px 0;
+}
+
+.switch button {
+    padding: 10px 18px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 6px;
+    background: #e5e7eb;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.switch button:hover {
+    background: #2563eb;
+    color: white;
+}
+
+.form {
+    margin-top: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #cbd5f5;
+}
+
+.submit {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background: #1d4ed8;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #64748b;
+}
+</style>
+
+<script>
+function showLogin() {
+    document.getElementById("login").style.display = "block";
+    document.getElementById("signup").style.display = "none";
+}
+
+function showSignup() {
+    document.getElementById("signup").style.display = "block";
+    document.getElementById("login").style.display = "none";
+}
+
+function loginValidate() {
+    var u = document.getElementById("loginUser").value;
+    var p = document.getElementById("loginPass").value;
+
+    if (u === "" || p.length < 6) {
+        alert("Invalid login details");
+        return false;
+    }
+    alert("Login Successful");
+    window.location.href = "ecommerce.html";
+    return false;
+}
+
+function signupValidate() {
+    var n = document.getElementById("name").value;
+    var e = document.getElementById("email").value;
+    var p = document.getElementById("pass").value;
+
+    if (n.length < 6 || p.length < 6 || e === "") {
+        alert("Invalid signup details");
+        return false;
+    }
+    alert("Signup Successful");
+    window.location.href = "ecommerce.html";
+    return false;
+}
+</script>
+
+</head>
+
+<body onload="showLogin()">
+
+<div class="container">
+<h1>Ashvanth Store</h1>
+<p>Premium Electronics</p>
+
+<div class="switch">
+<button onclick="showLogin()">Login</button>
+<button onclick="showSignup()">Signup</button>
+</div>
+
+<!-- LOGIN -->
+<div id="login" class="form">
+<form onsubmit="return loginValidate()">
+<input type="text" id="loginUser" placeholder="Username">
+<input type="password" id="loginPass" placeholder="Password">
+<input type="submit" class="submit" value="Login">
+</form>
+</div>
+
+<!-- SIGNUP -->
+<div id="signup" class="form" style="display:none;">
+<form onsubmit="return signupValidate()">
+<input type="text" id="name" placeholder="Full Name">
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="pass" placeholder="Password">
+<input type="submit" class="submit" value="Signup">
+</form>
+</div>
+
+<div class="footer">
+© Ashvanth M
+</div>
+</div>
+
+</body>
+</html>
